@@ -4,9 +4,12 @@
     --dark-3: #161616;
     --grey-1: #1f1f1f;
     --grey-2: #292929;
-    --rock-color: #F62C2C;
-    --paper-color: #478BF2;
-    --scissors-color: #FAFF1C;
+    --red: #F62C2C;
+    --red-dark: #922c2c;
+    --blue: #478BF2;
+    --blue-dark: #234880;
+    --yellow: #FAFF1C;
+    --yellow-dark: #74750b;
 }
 
 html, body {
@@ -24,9 +27,9 @@ body {
 
 nav {
     background-color: var(--dark-2);
-    height: 15%;
+    height: 15vh;
     border-bottom: 3px solid black;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0px 5px 10px var(--dark-1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,40 +38,35 @@ nav {
 
 .title {
     margin: 0;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     font-size: 3rem;
-
 }
 
 .title span:nth-of-type(1) {
-    color: var(--rock-color);
+    color: var(--red);
 }
 
 .title span:nth-of-type(2) {
-    color: var(--paper-color);
+    color: var(--blue);
 }
 
 .title span:nth-of-type(3) {
-    color: var(--scissors-color);
+    color: var(--yellow);
 }
 
-.navbuttons {
+/* .navbuttons {
     position: absolute;
     right: 40px;
-    
-}
+} */
 
-.btn-nav {
+/* .btn-nav {
     margin: 5px;
     background-color: var(--grey-2);
     height: 40px;
     width: 40px;
-    /* padding: 5px; */
     border: 2px solid var(--dark-1);
     border-radius: 5px;
-}
+} */
 
 section {
     display: flex;
@@ -78,9 +76,8 @@ section {
 }
 
 .circle-btn {
-    background-color: violet;
-    width: 120px;
-    height: 120px;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
     border: 4px solid var(--dark-1);
     margin: 30px 80px;
@@ -88,26 +85,27 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: filter, transform 0.5s;
 }
 
 .circle-btn:hover {
-    opacity: 0.8;
+    filter: brightness(0.75);
+    transform: scale(1.10);
 }
 
 .rock {
-    background-image: linear-gradient(var(--rock-color), rgb(146, 44, 44));
+    background-image: radial-gradient(var(--red), var(--red-dark));
 }
 
 .paper {
-    background-image: linear-gradient(var(--paper-color), #234880);
+    background-image: radial-gradient(var(--blue), var(--blue-dark));
 }
 
 .scissor {
-    background-image: linear-gradient(var(--scissors-color), #74750b);
+    background-image: radial-gradient(var(--yellow), var(--yellow-dark));
 }
 
 .choice {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,6 +166,7 @@ hr {
     border-radius: 5px;
     border: 3px solid var(--dark-2);
     box-shadow: 0px 5px 5px var(--dark-2);
+    font-weight: bold;
 }
 
 .score {
@@ -175,13 +174,11 @@ hr {
     height: 90px;
     width: 90px;
     background-color: var(--dark-3);
-    color: whitesmoke;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    
 }
 
 .box-result {
@@ -196,6 +193,7 @@ hr {
     border: 3px solid var(--dark-2);
     box-shadow: 0px 5px 5px var(--dark-2);
     font-size: 1rem;
+    font-weight: bold;
 }
 
 .medium-i {
@@ -204,4 +202,22 @@ hr {
 
 .rotate {
     transform: rotate(90deg);
+}
+
+.restart-btn {
+    padding: 1% 2%;
+    background-color: var(--grey-2);
+    border: 3px solid var(--dark-2);
+    box-shadow: -3px 3px 2px var(--dark-2);
+    border-radius: 5px;
+    transition: 0.5s;
+    color: gray;
+    font-weight: bold;
+}
+
+.restart-btn:hover {
+    background-color: var(--grey-1);
+    color: gray;
+    transform: translateY(5px);
+    box-shadow: none;
 }
